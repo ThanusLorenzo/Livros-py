@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Livros</title>
+</head>
+<body>
+    <h1>📚 Livros Cadastrados</h1>
+    <a href="{% url 'criar_livro' %}">Adicionar Novo Livro</a>
+    <hr>
+    
+    {% if livros %}
+        <ul>
+            {% for livro in livros %}
+                <li>
+                    **{{ livro.titulo }}** por {{ livro.autor }} ({{ livro.ano_publicacao }})
+                    - <a href="{% url 'editar_livro' livro.pk %}">Editar (UPDATE)</a>
+                    - <a href="{% url 'deletar_livro' livro.pk %}">Deletar (DELETE)</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum livro cadastrado ainda.</p>
+    {% endif %}
+</body>
+</html>

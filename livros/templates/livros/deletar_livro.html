@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deletar Livro</title>
+</head>
+<body>
+    <h1>Deletar Livro</h1>
+    <p>Tem certeza de que deseja deletar o livro **"{{ livro.titulo }}"**?</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sim, Deletar</button>
+        <a href="{% url 'listar_livros' %}">Cancelar</a>
+    </form>
+</body>
+</html>
